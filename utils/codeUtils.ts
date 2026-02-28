@@ -1,32 +1,34 @@
-const BASE_URL = "http://localhost:3000/code";
+export interface SnippetState {
+  code: string;
+  language: string;
+  theme: string;
+  fileName: string;
+}
 
 export const decodeCodeFromHash = async (
   hash: string,
-): Promise<string | null> => {
+): Promise<SnippetState | null> => {
   try {
-    const response = await fetch(`${BASE_URL}/decode/${hash}`);
+    const response = await fetch(`/api/code/decode/${hash}`);
     if (!response.ok) return null;
-    const data = await response.json();
-    return data.code;
+    return await response.json();
   } catch (error) {
-    console.error("Decode Error:", error);
     return null;
   }
 };
 
 export const encodeCodeToHash = async (
-  code: string,
+  state: SnippetState,
 ): Promise<string | null> => {
   try {
-    const response = await fetch(`${BASE_URL}/encode`, {
+    const response = await fetch(`/api/code/encode`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code }),
+      body: JSON.stringify(state),
     });
     const data = await response.json();
     return data.hash;
   } catch (error) {
-    console.error("Encode Error:", error);
     return null;
   }
 };

@@ -1,13 +1,14 @@
 import { useAtom } from "jotai";
+import { useEffect } from "react";
 import {
   codeAtom,
   languageAtom,
   themeAtom,
-  toastAtom,
   fileNameAtom,
+  toastAtom,
   LANGUAGE_MAP,
 } from "../atoms/codeAtom";
-import { encodeCodeToHash } from "../utils/codeUtils";
+import { decodeCodeFromHash, encodeCodeToHash } from "../utils/codeUtils";
 
 export function useCodeSharer() {
   const [code, setCode] = useAtom(codeAtom);
@@ -19,10 +20,30 @@ export function useCodeSharer() {
   const extension = LANGUAGE_MAP[language] || "txt";
   const fullFileName = `${fileName}.${extension}`;
 
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      decodeCodeFromHash(hash).then((state) => {
+        if (state) {
+          setCode(state.code);
+          setLanguage(state.language);
+          setTheme(state.theme);
+          setFileName(state.fileName);
+        }
+      });
+    }
+  }, [setCode, setLanguage, setTheme, setFileName]);
+
   const shareCode = async () => {
-    const newHash = await encodeCodeToHash(code);
-    if (newHash) {
-      window.history.pushState(null, "", `/#${newHash}`);
+    const hash = await encodeCodeToHash({
+      code,
+      language,
+      theme,
+      fileName,
+    });
+
+    if (hash) {
+      window.history.pushState(null, "", `/#${hash}`);
       await navigator.clipboard.writeText(window.location.href);
       setShowToast(true);
       setTimeout(() => setShowToast(false), 3000);
