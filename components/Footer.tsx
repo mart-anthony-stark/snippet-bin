@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="py-10 text-center transition-opacity duration-300">
       <div className="flex justify-center gap-6 mb-4">
         <a
-          href="https://github.com/mart-anthony-stark/snippet-share"
+          href="https://github.com/mart-anthony-stark/snippet-bin"
           target="_blank"
           rel="noopener noreferrer"
           className="text-slate-500 hover:text-slate-800 transition-colors"

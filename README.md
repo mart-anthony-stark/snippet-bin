@@ -30,8 +30,8 @@
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/yourusername/snippet-share.git](https://github.com/yourusername/snippet-share.git)
-    cd snippet-share
+    git clone [https://github.com/yourusername/snippet-bin.git](https://github.com/yourusername/snippet-bin.git)
+    cd snippet-bin
     ```
 
 2.  **Install dependencies:**
