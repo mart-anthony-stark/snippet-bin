@@ -61,3 +61,5 @@ SnippetShare uses a stateless flow to ensure privacy and speed:
 ## 📄 License
 
 Distributed under the MIT License.
+
+<a href="https://www.buymeacoffee.com/martsalazar" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
