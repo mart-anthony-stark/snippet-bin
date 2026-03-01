@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SnippetShare",
+  title: "SnippetBin",
   description: "A platform for sharing code snippets easily.",
 };
 

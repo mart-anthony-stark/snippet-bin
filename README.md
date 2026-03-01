@@ -1,6 +1,6 @@
-# 🚀 SnippetShare
+# 🚀 SnippetBin
 
-**SnippetShare** is a minimalist, high-performance web application designed for developers to share code snippets instantly. Unlike traditional pastebins, SnippetShare is **entirely stateless**—it stores no data in a database. Instead, your code, theme, and language settings are compressed and encoded directly into the URL.
+**SnippetBin** is a minimalist, high-performance web application designed for developers to share code snippets instantly. Unlike traditional pastebins, SnippetBin is **entirely stateless**—it stores no data in a database. Instead, your code, theme, and language settings are compressed and encoded directly into the URL.
 
 ## ✨ Features
 
@@ -51,7 +51,7 @@
 
 ## 🧠 How it Works
 
-SnippetShare uses a stateless flow to ensure privacy and speed:
+SnippetBin uses a stateless flow to ensure privacy and speed:
 
 1.  **Capture**: The app gathers the code, language, theme, and filename from the Jotai store.
 2.  **Compress**: The data is stringified and compressed using the `zlib` deflate algorithm via a Next.js API route.
